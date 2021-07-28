@@ -51,7 +51,7 @@ class LinkedList:
 
         if pos < 0 or pos > self.nodeCount:
 
-        # 연결리스트가 0번째 더미노드 부터 시작되므로, 연결리스트의 범위를 벗어나는 pos 값        은 0보다 작은 것에서부터 발생된다.
+# 연결리스트가 0번째 더미노드 부터 시작되므로, 연결리스트의 범위를 벗어나는 pos 값은 0보다 작은 것에서부터 발생된다.
 
             return None
 
@@ -119,34 +119,35 @@ class LinkedList:
 
         # prev의 다음 node를 삭제하고 그 node의 data를 리턴한다.
 
-        curr = self.getAt(prev+1)
-
-        prev = self.getAt(prev)
-
-
-        if prev < 0 or prev > self.nodeCount:
-
-            raise IndexError
-
-
         if prev.next == None:
-
-            # prev 노드가 마지막 노드인 tail 노드인 경우
 
             return None
 
+        curr = prev.next
+
         if curr.next == None:
 
-            self.tail = None
+            if self.nodeCount == 1:
 
-            prev.next = self.tail
+                self.tail = prev
+
+                prev.next = None
+
+
+
+            else:
+
+                self.tail = prev
+
+                prev.next = None
+
 
         else:
 
             prev.next = curr.next
 
-        self.nodeCount -= 1
 
+        self.nodeCount -= 1
 
         return curr.data
 
@@ -161,16 +162,6 @@ class LinkedList:
         prev = self.getAt(pos-1)
 
         return self.popAfter(prev)
-
-
-
-
-
-
-
-
-
-
 
 
     def concat(self,L):
