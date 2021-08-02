@@ -212,15 +212,22 @@ class PriorityQueue:
 
         newNode = Node(x)
 
-        curr = newNode.data
+        curr = self.queue.head
 
-        while curr.next.data != None and x < curr.
+        while curr.next.data != None and x < curr.next.data:
+
+            curr = curr.next
+
+        self.queue.insertAfter(curr,newNode)
+
+# 이와같은 코드로 인해 연결리스트로 이루어진 큐에 데이터를 포함한 노드가 큰 값부터 작은 값의 순서로 배열되게 되며,
 
 
     def dequeue(self):
 
         return self.queue.popAt(self.queue.getLength())
 
+# enqueue 코드의 결과 dequeue를 하게되면, 크기가 작은 값부터 먼저 출력되게 되는데, 이러한 동작에 의해 우선순위를 크기가 작은 값의 데이터에 높은 것으로 부여하여 크기가 작은 값이 먼저 큐로 부터 출력되도록 할 수 있게된다. 즉, 이와 같은 enqueue , dequeue 방식은 먼저 enqueue 과정에서 큐에 노드 값의 순서대로 배열하고 출력을 했을 때 우선순위에 맞는 값이 먼저 출력되도록 하는 것이다.
 
     def peek(self):
 
