@@ -85,16 +85,6 @@ class MaxHeap:
             self.maxHeapify(smallest)
 
 
-
-
-
-
-
-
-
-
-
-
     def heapsort(unsorted):
 
         H = MaxHeap()
@@ -107,6 +97,8 @@ class MaxHeap:
 
         d = H.remove()
 
+# 여기서 d 변수에는 항상 최대힙의 뿌리노드가 할당되게된다.
+
         while d:
 
             sorted.append(d)
@@ -115,18 +107,7 @@ class MaxHeap:
 
         return sorted
 
-
-
-
-
-
-
-
-
-
-
-
-
+# 최종적으로 sorted엔 최대힙의 모든 노드가 배열자료구조에 뿌리노드부터 순서대로 할당되게 된다.
 
 
 
