@@ -1,14 +1,20 @@
+###.1
+
 def solution(words,word):
 
     count = 0
 
-    for comp in words:
+    for find in words:
 
-        for x,y in zip(comp,word):
+        for a,b, in zip(find,word):
 
-            if x != y:
+            if a != b:
 
                 count = count + 1
+
+            else:
+
+                continue
 
     return count
 
@@ -16,7 +22,6 @@ words = ["CODE","COED","CDEO"]
 
 word = "CODE"
 
-ret = solution(words,word)
+print(solution(words,word))
 
-print(ret)
 
